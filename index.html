@@ -21,11 +21,16 @@
 <div>
   <span>Value of each payment:</span>
   <span class="unit">$</span>
-  <input id="paymentValue" value="10">
+  <input id="paymentValue" size="5" value="10">
 </div>
 
 <div>
-  <span>Payments occur every: 1 month</span>
+  <span>Payments occur every:</span>
+  <input id="paymentFrequencyCount" size="3" value="1">
+  <input type="radio" name="paymentFrequencyUnit" value="day"> day
+  <input type="radio" name="paymentFrequencyUnit" value="week"> week
+  <input type="radio" name="paymentFrequencyUnit" value="month" checked> month
+  <input type="radio" name="paymentFrequencyUnit" value="year"> year
 </div>
 
 <div>
