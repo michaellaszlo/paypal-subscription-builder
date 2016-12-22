@@ -23,3 +23,17 @@ body {
   padding: 20px;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
+#subscriptionBuilder {
+  display: inline-block;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+#subscriptionBuilder div {
+  margin: 10px 5px;
+}
+
