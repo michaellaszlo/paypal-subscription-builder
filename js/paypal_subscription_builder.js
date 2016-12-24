@@ -1,12 +1,16 @@
 var PayPalSubscriptionBuilder = (function () {
 
   function toggleIndefinitePayments() {
-    console.log('toggling');
+    var numberInput = document.getElementById('paymentNumber');
+    if (this.checked == true) {
+      M.classAdd(numberInput, 'disabled');
+    } else {
+      M.classRemove(numberInput, 'disabled');
+    }
   }
 
   function load() {
     var button;
-    console.log('loading');
     // Enable indefinite-payment selector.
     button = document.getElementById('paymentRecursIndefinitely');
     button.onclick = toggleIndefinitePayments;
