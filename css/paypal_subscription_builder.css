@@ -37,18 +37,21 @@ input {
   padding: 2px 5px;
 }
 
-#subscriptionBuilder {
+#variableInput, #variableDisplay {
   display: inline-block;
   border: 2px solid #eee;
-  border-radius: 5px;
   padding: 5px 10px;
 }
-#subscriptionBuilder div {
+#variableInput div {
   margin: 10px 5px;
 }
 
-#inputPaymentNumber.disabled {
+#inputPaymentCount.disabled {
   border-color: #ddd;
   color: #bbb;
+}
+
+#variableDisplay {
+  border-color: transparent;
 }
 

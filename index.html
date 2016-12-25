@@ -17,31 +17,32 @@
 
 <h1> PayPal subscription builder </h1>
 
-<div id="subscriptionBuilder">
+<div id="variableInput">
 
 <div>
-  <span>Value of each payment:</span>
+  <span class="label">Value of each payment</span> <br>
   <span class="unit">$</span>
   <input id="inputPaymentValue" size="5" value="10">
 </div>
 
 <div>
-  <span>Payments occur every:</span>
-  <input id="inputFrequencyCount" size="3" value="1">
-  <input type="radio" name="inputFrequencyUnit" value="day"> day
-  <input type="radio" name="inputFrequencyUnit" value="week"> week
-  <input type="radio" name="inputFrequencyUnit" value="month" checked> month
-  <input type="radio" name="inputFrequencyUnit" value="year"> year
+  <span class="label">Payments occur every</span> <br>
+  <input id="inputPeriodCount" size="3" value="1">
+  <input type="radio" name="inputPeriodUnit" value="day"> day
+  <input type="radio" name="inputPeriodUnit" value="week"> week
+  <input type="radio" name="inputPeriodUnit" value="month" checked> month
+  <input type="radio" name="inputPeriodUnit" value="year"> year
 </div>
 
 <div>
-  <span>Number of payments:</span>
-  <input id="inputPaymentNumber" size="5" value="12">
-  <input id="paymentRecursIndefinitely" type="checkbox">indefinite
+  <span class="label">Count of payments</span> <br>
+  <input id="inputPaymentCount" size="5" value="12">
+  <input id="unlimitedRecurrence" type="checkbox"> unlimited
 </div>
 
-</div><!--end subscriptionBuilder -->
+</div><!--end variableInput -->
 
+<br>
 <div id="variableDisplay">
 <table>
 <tr>
@@ -50,14 +51,24 @@
   <td class="value" id="displayPaymentValue"></td>
 </tr>
 <tr>
-  <td class="description">Frequency count</td>
+  <td class="description">Period count</td>
   <td class="name">p3</td>
-  <td class="value" id="displayFrequencyCount"></td>
+  <td class="value" id="displayPeriodCount"></td>
 </tr>
 <tr>
-  <td class="description">Frequency unit</td>
+  <td class="description">Period unit</td>
   <td class="name">t3</td>
-  <td class="value" id="displayFrequencyUnit"></td>
+  <td class="value" id="displayPeriodUnit"></td>
+</tr>
+<tr>
+  <td class="description">Recurring?</td>
+  <td class="name">src</td>
+  <td class="value" id="displayRecurring"></td>
+</tr>
+<tr>
+  <td class="description">Payment count</td>
+  <td class="name">srt</td>
+  <td class="value" id="displayPaymentCount"></td>
 </tr>
 </table>
 </div><!--end variableDisplay -->
