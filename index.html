@@ -22,25 +22,45 @@
 <div>
   <span>Value of each payment:</span>
   <span class="unit">$</span>
-  <input id="paymentValue" size="5" value="10">
+  <input id="inputPaymentValue" size="5" value="10">
 </div>
 
 <div>
   <span>Payments occur every:</span>
-  <input id="paymentFrequencyCount" size="3" value="1">
-  <input type="radio" name="paymentFrequencyUnit" value="day"> day
-  <input type="radio" name="paymentFrequencyUnit" value="week"> week
-  <input type="radio" name="paymentFrequencyUnit" value="month" checked> month
-  <input type="radio" name="paymentFrequencyUnit" value="year"> year
+  <input id="inputFrequencyCount" size="3" value="1">
+  <input type="radio" name="inputFrequencyUnit" value="day"> day
+  <input type="radio" name="inputFrequencyUnit" value="week"> week
+  <input type="radio" name="inputFrequencyUnit" value="month" checked> month
+  <input type="radio" name="inputFrequencyUnit" value="year"> year
 </div>
 
 <div>
   <span>Number of payments:</span>
+  <input id="inputPaymentNumber" size="5" value="12">
   <input id="paymentRecursIndefinitely" type="checkbox">indefinite
-  <input id="paymentNumber" size="5" value="12">
 </div>
 
 </div><!--end subscriptionBuilder -->
+
+<div id="variableDisplay">
+<table>
+<tr>
+  <td class="description">Payment value</td>
+  <td class="name">a3</td>
+  <td class="value" id="displayPaymentValue"></td>
+</tr>
+<tr>
+  <td class="description">Frequency count</td>
+  <td class="name">p3</td>
+  <td class="value" id="displayFrequencyCount"></td>
+</tr>
+<tr>
+  <td class="description">Frequency unit</td>
+  <td class="name">t3</td>
+  <td class="value" id="displayFrequencyUnit"></td>
+</tr>
+</table>
+</div><!--end variableDisplay -->
 
 </div><!--end wrapper -->
 </body>

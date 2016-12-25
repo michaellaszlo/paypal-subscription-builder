@@ -1,7 +1,7 @@
 var PayPalSubscriptionBuilder = (function () {
 
   function toggleIndefinitePayments() {
-    var numberInput = document.getElementById('paymentNumber');
+    var numberInput = document.getElementById('inputPaymentNumber');
     if (this.checked == true) {
       M.classAdd(numberInput, 'disabled');
     } else {
