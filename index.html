@@ -23,23 +23,23 @@
 <div id="variableInput">
 
 <div>
-  <span class="label">Value of each payment</span> <br>
+  <span class="label">Amount of each payment</span> <br>
   <span class="unit">$</span>
-  <input id="inputPaymentValue" size="5" value="10">
+  <input id="inputAmount" size="5">
 </div>
 
 <div id="paymentPeriodConfiguration">
   <span class="label">Payments occur every</span> <br>
-  <input id="inputPeriodCount" size="3" value="1">
-  <input type="radio" name="inputPeriodUnit" value="D"> day
-  <input type="radio" name="inputPeriodUnit" value="W"> week
-  <input type="radio" name="inputPeriodUnit" value="M"> month
-  <input type="radio" name="inputPeriodUnit" value="Y"> year
+  <input id="inputPeriodMultiple" size="3">
+  <input type="radio" name="inputPeriodUnit" id="unitD" value="D"> day
+  <input type="radio" name="inputPeriodUnit" id="unitW" value="W"> week
+  <input type="radio" name="inputPeriodUnit" id="unitM" value="M"> month
+  <input type="radio" name="inputPeriodUnit" id="unitY" value="Y"> year
 </div>
 
 <div>
-  <span class="label">Count of payments</span> <br>
-  <input id="inputPaymentCount" size="5" value="12">
+  <span class="label">Number of payments</span> <br>
+  <input id="inputNumPayments" size="5">
   <input id="unlimitedRecurrence" type="checkbox"> unlimited
 </div>
 
@@ -53,12 +53,12 @@
 <tr>
   <td class="description">Payment value</td>
   <td class="name">a3</td>
-  <td class="value" id="displayPaymentValue"></td>
+  <td class="value" id="displayAmount"></td>
 </tr>
 <tr>
   <td class="description">Period count</td>
   <td class="name">p3</td>
-  <td class="value" id="displayPeriodCount"></td>
+  <td class="value" id="displayPeriodMultiple"></td>
 </tr>
 <tr>
   <td class="description">Period unit</td>
@@ -68,12 +68,12 @@
 <tr>
   <td class="description">Recurring?</td>
   <td class="name">src</td>
-  <td class="value" id="displayRecurring"></td>
+  <td class="value" id="displayRecurring">1</td>
 </tr>
 <tr>
   <td class="description">Payment count</td>
   <td class="name">srt</td>
-  <td class="value" id="displayPaymentCount"></td>
+  <td class="value" id="displayNumPayments"></td>
 </tr>
 </table>
 </div><!--end variableDisplay -->

@@ -1,7 +1,24 @@
 var PayPalSubscriptionBuilder = (function () {
+  'use strict';
+
+  var unitRanges = {
+        'D': { min: 1, max: 90 },
+        'W': { min: 1, max: 52 },
+        'M': { min: 1, max: 24 },
+        'Y': { min: 1, max: 5 }
+      },
+      unitButtons = {},
+      numericalInputs = {},
+      state = {
+        amount: 10,
+        periodMultiple: 1,
+        periodUnit: 'M',
+        numPayments: 12,
+        unlimitedPayments: false
+      };
 
   function toggleUnlimitedRecurrence() {
-    var numberInput = document.getElementById('inputPaymentCount');
+    var numberInput = document.getElementById('inputNumPayments');
     if (this.checked == true) {
       M.classAdd(numberInput, 'disabled');
     } else {
@@ -9,23 +26,27 @@ var PayPalSubscriptionBuilder = (function () {
     }
   }
 
-  function updatePaymentValue() {
-    var value = parseInt(this.value, 10);
-    document.getElementById('displayPaymentValue').innerHTML = value;
+  function updateAmount() {
+    var amount = parseInt(this.value, 10);
+    state.amount = amount;
+    document.getElementById('displayAmount').innerHTML = amount;
   }
 
-  function updatePaymentCount() {
-    var value = parseInt(this.value, 10);
-    document.getElementById('displayPaymentCount').innerHTML = value;
+  function updateNumPayments() {
+    var num = parseInt(this.value, 10);
+    state.numPayments = num;
+    document.getElementById('displayNumPayments').innerHTML = num;
   }
 
-  function updatePeriodCount() {
-    var value = parseInt(this.value, 10);
-    document.getElementById('displayPeriodCount').innerHTML = value;
+  function updatePeriodMultiple() {
+    var multiple = parseInt(this.value, 10);
+    state.periodMultiple = multiple;
+    document.getElementById('displayPeriodMultiple').innerHTML = multiple;
   }
 
   function updatePeriodUnit() {
     var unit = this.value;
+    state.periodUnit = unit;
     document.getElementById('displayPeriodUnit').innerHTML = unit;
   }
 
@@ -42,26 +63,41 @@ var PayPalSubscriptionBuilder = (function () {
     var container,
         inputs, i, input,
         button;
-    // Numerical inputs.
-    setUpdater(document.getElementById('inputPaymentValue'),
-        updatePaymentValue);
-    setUpdater(document.getElementById('inputPeriodCount'),
-        updatePeriodCount);
-    setUpdater(document.getElementById('inputPaymentCount'),
-        updatePaymentCount);
-    // Period-unit radio buttons.
+
+    // Find numerical inputs and unit buttons.
+    [ 'amount', 'numPayments', 'periodMultiple' ].forEach(function (name) {
+      numericalInputs[name] = document.getElementById('input'
+          + name.charAt(0).toUpperCase() + name.substring(1));
+    });
+    [ 'D', 'W', 'M', 'Y' ].forEach(function (unit) {
+      unitButtons[unit] = document.getElementById('unit' + unit);
+    });
+
+    // Use state to initialize input values.
+    numericalInputs.amount.value = state.amount;
+    numericalInputs.numPayments.value = state.numPayments;
+    numericalInputs.periodMultiple.value = state.periodMultiple;
+    unitButtons[state.periodUnit].checked = true;
+
+    // Enable numerical inputs.
+    setUpdater(numericalInputs.amount, updateAmount);
+    setUpdater(numericalInputs.numPayments, updateNumPayments);
+    setUpdater(numericalInputs.periodMultiple, updatePeriodMultiple);
+
+    // Enable period-unit radio buttons.
     container = document.getElementById('paymentPeriodConfiguration');
     inputs = container.getElementsByTagName('input');
     for (i = 0; i < inputs.length; ++i) {
       input = inputs[i];
       if (input.name == 'inputPeriodUnit') {
         input.addEventListener('change', updatePeriodUnit);
-        if (input.value == 'M') {
-          input.click();
+        if (input.checked) {
+          updatePeriodUnit.apply(input);
         }
       }
     }
-    // Unlimited-recurrence toggle.
+
+    // Enable limited-recurrence toggle.
     button = document.getElementById('unlimitedRecurrence');
     button.onclick = toggleUnlimitedRecurrence;
   }
