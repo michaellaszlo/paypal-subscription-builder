@@ -17,6 +17,9 @@
 
 <h1> PayPal subscription builder </h1>
 
+
+<h2> Configuration </h2>
+
 <div id="variableInput">
 
 <div>
@@ -25,13 +28,13 @@
   <input id="inputPaymentValue" size="5" value="10">
 </div>
 
-<div>
+<div id="paymentPeriodConfiguration">
   <span class="label">Payments occur every</span> <br>
   <input id="inputPeriodCount" size="3" value="1">
-  <input type="radio" name="inputPeriodUnit" value="day"> day
-  <input type="radio" name="inputPeriodUnit" value="week"> week
-  <input type="radio" name="inputPeriodUnit" value="month" checked> month
-  <input type="radio" name="inputPeriodUnit" value="year"> year
+  <input type="radio" name="inputPeriodUnit" value="D"> day
+  <input type="radio" name="inputPeriodUnit" value="W"> week
+  <input type="radio" name="inputPeriodUnit" value="M"> month
+  <input type="radio" name="inputPeriodUnit" value="Y"> year
 </div>
 
 <div>
@@ -42,7 +45,9 @@
 
 </div><!--end variableInput -->
 
-<br>
+
+<h2> Query values </h2>
+
 <div id="variableDisplay">
 <table>
 <tr>
@@ -72,6 +77,8 @@
 </tr>
 </table>
 </div><!--end variableDisplay -->
+
+
 
 </div><!--end wrapper -->
 </body>
