@@ -18,11 +18,10 @@ var PayPalSubscriptionBuilder = (function () {
       };
 
   function toggleUnlimitedRecurrence() {
-    var numberInput = document.getElementById('inputNumPayments');
     if (this.checked == true) {
-      M.classAdd(numberInput, 'disabled');
+      M.classAdd(numericalInputs.numPayments, 'disabled');
     } else {
-      M.classRemove(numberInput, 'disabled');
+      M.classRemove(numericalInputs.numPayments, 'disabled');
     }
   }
 
@@ -39,7 +38,12 @@ var PayPalSubscriptionBuilder = (function () {
   }
 
   function updatePeriodMultiple() {
-    var multiple = parseInt(this.value, 10);
+    var multiple = parseInt(this.value, 10),
+        range = unitRanges[state.periodUnit];
+    if (multiple < range.min || multiple > range.max) {
+      console.log('period multiple out of range');
+      return;
+    }
     state.periodMultiple = multiple;
     document.getElementById('displayPeriodMultiple').innerHTML = multiple;
   }

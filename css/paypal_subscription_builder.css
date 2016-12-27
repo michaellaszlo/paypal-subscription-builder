@@ -46,9 +46,8 @@ input {
   margin: 10px 5px;
 }
 
-#inputPaymentCount.disabled {
-  border-color: #ddd;
-  color: #bbb;
+.disabled {
+  visibility: hidden;
 }
 
 #variableDisplay {
