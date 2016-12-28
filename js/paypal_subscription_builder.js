@@ -25,15 +25,20 @@ var PayPalSubscriptionBuilder = (function () {
     }
   }
 
+  function updateState(name, value) {
+    state[name] = value;
+    localStorage.setItem('state', JSON.stringify(state));
+  }
+
   function updateAmount() {
     var amount = parseInt(this.value, 10);
-    state.amount = amount;
+    updateState('amount', amount);
     document.getElementById('displayAmount').innerHTML = amount;
   }
 
   function updateNumPayments() {
     var num = parseInt(this.value, 10);
-    state.numPayments = num;
+    updateState('numPayments', num);
     document.getElementById('displayNumPayments').innerHTML = num;
   }
 
@@ -44,13 +49,13 @@ var PayPalSubscriptionBuilder = (function () {
       console.log('period multiple out of range');
       return;
     }
-    state.periodMultiple = multiple;
+    updateState('periodMultiple', multiple);
     document.getElementById('displayPeriodMultiple').innerHTML = multiple;
   }
 
   function updatePeriodUnit() {
     var unit = this.value;
-    state.periodUnit = unit;
+    updateState('periodUnit', unit);
     document.getElementById('displayPeriodUnit').innerHTML = unit;
   }
 
