@@ -69,7 +69,8 @@ var PayPalSubscriptionBuilder = (function () {
   }
 
   function load() {
-    var container,
+    var data,
+        container,
         inputs, i, input,
         button;
 
@@ -81,6 +82,12 @@ var PayPalSubscriptionBuilder = (function () {
     [ 'D', 'W', 'M', 'Y' ].forEach(function (unit) {
       unitButtons[unit] = document.getElementById('unit' + unit);
     });
+
+    // Load state if available.
+    data = localStorage.getItem('state');
+    if (data !== null) {
+      state = JSON.parse(data);
+    }
 
     // Use state to initialize input values.
     numericalInputs.amount.value = state.amount;
