@@ -43,13 +43,13 @@ var PayPalSubscriptionBuilder = (function () {
   }
 
   function updatePeriodMultiple() {
-    var multiple = parseInt(this.value, 10),
+    var input = numericalInputs.periodMultiple,
+        multiple = parseInt(this.value, 10),
         range = unitRanges[state.periodUnit];
     if (multiple < range.min || multiple > range.max) {
-      console.log('period multiple out of range; restoring from state');
-      console.log(state.periodMultiple);
-      numericalInputs.periodMultiple.value = state.periodMultiple;
-      return;
+      M.classAdd(input, 'error');
+    } else {
+      M.classRemove(input, 'error');
     }
     updateState('periodMultiple', multiple);
     document.getElementById('displayPeriodMultiple').innerHTML = multiple;

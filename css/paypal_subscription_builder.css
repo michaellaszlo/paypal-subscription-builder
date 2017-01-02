@@ -54,3 +54,8 @@ input {
   border-color: transparent;
 }
 
+input.error {
+  border-color: red;
+  color: red;
+}
+
