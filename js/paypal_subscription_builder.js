@@ -46,7 +46,8 @@ var PayPalSubscriptionBuilder = (function () {
     var input = numericalInputs.periodMultiple,
         multiple = parseInt(this.value, 10),
         range = unitRanges[state.periodUnit];
-    if (multiple < range.min || multiple > range.max) {
+    if (multiple !== multiple ||
+        multiple < range.min || multiple > range.max) {
       M.classAdd(input, 'error');
     } else {
       M.classRemove(input, 'error');
