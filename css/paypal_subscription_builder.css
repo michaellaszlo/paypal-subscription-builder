@@ -60,3 +60,11 @@ input.error {
   background: #fff5f6;
 }
 
+.dollars {
+  position: absolute;
+}
+
+td {
+  padding: 5px;
+}
+

@@ -29,28 +29,31 @@ WebFont.load({
 <h2> Configuration </h2>
 
 <div id="variableInput">
+<table>
 
-<div>
-  <span class="label">Amount of each payment</span> <br>
-  <span class="unit">$</span>
-  <input id="inputAmount" size="5">
-</div>
+<tr>
+  <td> <span class="label">Amount of each payment</span> </td>
+  <td> <span class="dollars">$</span> <input id="inputAmount" size="5"> </td>
+</tr>
 
-<div id="paymentPeriodConfiguration">
-  <span class="label">Payments occur every</span> <br>
-  <input id="inputPeriodMultiple" size="3">
-  <input type="radio" name="inputPeriodUnit" id="unitD" value="D"> day
-  <input type="radio" name="inputPeriodUnit" id="unitW" value="W"> week
-  <input type="radio" name="inputPeriodUnit" id="unitM" value="M"> month
-  <input type="radio" name="inputPeriodUnit" id="unitY" value="Y"> year
-</div>
+<tr id="paymentPeriodConfiguration">
+  <td> <span class="label">Payments occur every</span> </td>
+  <td> <input id="inputPeriodMultiple" size="3"> </td>
+  <td>
+    <input type="radio" name="inputPeriodUnit" id="unitD" value="D"> day
+    <input type="radio" name="inputPeriodUnit" id="unitW" value="W"> week
+    <input type="radio" name="inputPeriodUnit" id="unitM" value="M"> month
+    <input type="radio" name="inputPeriodUnit" id="unitY" value="Y"> year
+  </td>
+</tr>
 
-<div>
-  <span class="label">Number of payments</span> <br>
-  <input id="inputNumPayments" size="5">
-  <input id="unlimitedRecurrence" type="checkbox"> unlimited
-</div>
+<tr>
+  <td> <span class="label">Number of payments</span> </td>
+  <td> <input id="inputNumPayments" size="5"> </td>
+  <td> <input id="unlimitedRecurrence" type="checkbox"> unlimited </td>
+</tr>
 
+</table>
 </div><!--end variableInput -->
 
 
