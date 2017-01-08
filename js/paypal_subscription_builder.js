@@ -31,23 +31,23 @@ var PayPalSubscriptionBuilder = (function () {
   }
 
   function updateAmount() {
-    var amount = parseInt(this.value, 10);
+    var amount = this.value;
     updateState('amount', amount);
     document.getElementById('displayAmount').innerHTML = amount;
   }
 
   function updateNumPayments() {
-    var num = parseInt(this.value, 10);
+    var num = this.value;
     updateState('numPayments', num);
     document.getElementById('displayNumPayments').innerHTML = num;
   }
 
   function updatePeriodMultiple() {
     var input = numericalInputs.periodMultiple,
-        multiple = parseInt(this.value, 10),
+        multiple = this.value,
+        x = parseInt(multiple, 10),
         range = unitRanges[state.periodUnit];
-    if (multiple !== multiple ||
-        multiple < range.min || multiple > range.max) {
+    if (x !== x || x < range.min || x > range.max) {
       M.classAdd(input, 'error');
     } else {
       M.classRemove(input, 'error');
